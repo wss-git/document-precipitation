@@ -34,17 +34,13 @@ jobs:
       - name: NPM install s
         run: |
           npm install -g @serverless-devs/s
-      - name: ls
-        run: ls -al
-      - name: ls express
-        run: ls -al express
       - name: ls express/public
         run: ls -al express/public
 
-      # - name: deploy
-      #   env:
-      #     AccountID: ${{secrets.ACCOUNTID}}
-      #     AccessKeyID: ${{secrets.ACCESSKEYID}}
-      #     AccessKeySecret: ${{secrets.ACCESSKEYSECRET}}
-      #   run: |
-      #     cd express && s deploy
+      - name: deploy
+        env:
+          AccountID: ${{secrets.ACCOUNTID}}
+          AccessKeyID: ${{secrets.ACCESSKEYID}}
+          AccessKeySecret: ${{secrets.ACCESSKEYSECRET}}
+        run: |
+          cd express && s deploy
