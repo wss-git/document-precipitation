@@ -1,0 +1,50 @@
+name: publish
+
+on:
+  release:
+    types: [created]
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # 构建 python 环境
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.4"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -t ./
+      - name: Build
+        run: |
+          mkdocs build
+
+      # 构建 node 环境
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - name: NPM install s
+        run: |
+          npm install -g @serverless-devs/s
+      - name: ls
+        run: ls -al
+      - name: ls express
+        run: ls -al express
+      - name: ls express/public
+        run: ls -al express/public
+
+      # - name: deploy
+      #   env:
+      #     AccountID: ${{secrets.ACCOUNTID}}
+      #     AccessKeyID: ${{secrets.ACCESSKEYID}}
+      #     AccessKeySecret: ${{secrets.ACCESSKEYSECRET}}
+      #   run: |
+      #     cd express && s deploy

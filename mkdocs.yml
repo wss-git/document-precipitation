@@ -1,0 +1,19 @@
+site_name: wss # 标题
+site_description: 内容沉淀
+site_author: wss
+site_favicon: favicon.ico
+site_dir: express/public # 设置输出的目录
+#site_url: '' # 设置站点的 URL. 这将添加带有规范的 URL 的 link 标签到 HTML 头部.
+#pages:
+#  - ['index.md', 'Introduction']
+#  - ['user-guide.md', 'User Guide']
+#  - ['about.md', 'About']
+
+repo_url: https://github.com/wss-git/document-precipitation # 每个页面将会添加一个链接到你的 GitHub 或 Bitbucket 版本库.
+
+#theme: readthedocs # 配置主题
+#theme_dir:  # 自定义主题
+
+#google_analytics: ['UA-36723568-3', 'mkdocs.org'] # 设置 Google 站点分析工具.
+
+copyright: 设置站点版权信息

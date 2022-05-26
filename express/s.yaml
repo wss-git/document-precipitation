@@ -1,0 +1,39 @@
+edition: 1.0.0
+name: hello-world-app
+access: default
+
+services:
+  helloworld:
+    component: fc
+    actions:
+      pre-deploy:
+        - run: npm install --production
+          path: .
+    props:
+      region: cn-shenzhen
+      service:
+        name: test-wss
+        description: "hello world by serverless devs"
+      function:
+        name: start-fc-event
+        description: "hello world by serverless devs"
+        codeUri: "./"
+        runtime: custom
+        timeout: 60
+        caPort: 9000
+        customRuntimeConfig:
+          command:
+            - node
+            - server
+      triggers:
+        - name: httpTrigger
+          type: http
+          config:
+            authType: anonymous
+            methods:
+              - GET
+      customDomains:
+        - domainName: auto
+          protocol: HTTP
+          routeConfigs:
+            - path: "/*"
