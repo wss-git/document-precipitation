@@ -10,12 +10,12 @@ services:
         - run: npm install --production
           path: .
     props:
-      region: cn-shenzhen
+      region: cn-hangzhou
       service:
-        name: test-wss
+        name: doc
         description: "hello world by serverless devs"
       function:
-        name: start-fc-event
+        name: doc
         description: "hello world by serverless devs"
         codeUri: "./"
         runtime: custom
