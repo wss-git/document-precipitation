@@ -9,6 +9,9 @@ services:
       pre-deploy:
         - run: npm install --production
           path: .
+      post-deploy:
+        - component: fc version publish
+        - component: fc alias publish --alias-name port --version-latest
     props:
       region: cn-hangzhou
       service:
