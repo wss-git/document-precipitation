@@ -35,7 +35,11 @@ jobs:
         run: |
           npm install -g @serverless-devs/s
       - name: ls express/public
-        run: ls -al express/public/产品实践
+        run: |
+          ls -al express/public
+          ls -al express/public/产品问答
+          ls -al express/public/产品实践
+          ls -al express/public/问题沉淀
 
       - name: deploy
         env:
